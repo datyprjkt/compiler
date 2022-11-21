@@ -19,10 +19,8 @@ function compile(){
 }
 
 function telegramstop(){
-        . telegramstop.sh                           
-	
-	
-
+        . telegramstop.sh
+}
 
 target
 telegramstart
