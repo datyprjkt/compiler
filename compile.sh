@@ -24,7 +24,9 @@ else
 fi
 cd $ANYKERNELDIR
 nano anykernel.sh
-cp $IMGPATH/Image $ANYKERNELDIR
+cp "$IMGPATH/Image" "$ANYKERNELDIR" || cp "$IMGPATH/Image.gz-dtb" "$ANYKERNELDIR"
+cp "$IMG_PATH/dtb.img" "$ANYKERNELDIR" || echo "dtb.img not found!"
+cp "$IMG_PATH/dtbo.img" "$ANYKERNELDIR" || echo "dtbo.img not found!"
 zip -r9 "xVoldGoadx.zip" ./*
     build_message "Compile success ❤️"
     tg_send_message --chat_id "$CHAT_ID" --text "LOL WTF' Compile Success Mate ❤️
