@@ -8,7 +8,9 @@ mkdir -p O=out
 make O=out clean
 make $KERNEL_DEFCONFIG O=out
 make menuconfig O=out
-     build_message "Start Compile!1😈"
+     
+build_message "Compile Started 👹  !!1!️"
+
 make -j$(nproc --all) ARCH=arm64 O=out \
         CC=${CLANG_ROOTDIR}/bin/clang \
         CLANG_TRIPLE=aarch64-linux-gnu \
@@ -16,11 +18,11 @@ make -j$(nproc --all) ARCH=arm64 O=out \
         CROSS_COMPILE_ARM32=${CLANG_ROOTDIR}/bin/arm-linux-gnueabi-
 if ! [[ -f "$IMG_PATH/Image.gz-dtb" || -f "$IMG_PATH/Image" ]]; then
      tg_send_message --chat_id "$CHAT_ID" --text "   ====== Compile Aborted 😓 ======
-👿  Please Check the eror 👿"
-     echo "Build failed, please check build log and fix it!"
+   👿   Please Check the eror   👿"
+     echo "Compile failed, please check build log and fix it!"
     exit 1
 else
-     echo "Build Complete, find kernel image in $IMG_PATH"
+     echo "Compile Complete, find kernel image in $IMG_PATH"
 fi
 cd $ANYKERNELDIR
 nano anykernel.sh
