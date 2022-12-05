@@ -68,7 +68,7 @@ tg_send_document() {
 
 
 build_message() {
-CI_MESSAGE_ID=$(tg_send_message --chat_id "$CHAT_ID" --text "<b>=== Starting Build ${KERNEL_NAME} ==$
+CI_MESSAGE_ID=$(tg_send_message --chat_id "$CHAT_ID" --text "<b>=== Starting Build ${KERNELNAME} ===</b>
 <b>Branch:</b> <code>${KERNELBRANCH}</code>
 <b>Device:</b> <code>${DEVICE}</code>
 <b>Compile use:</b> <code>${COMPILE}</code>
@@ -76,7 +76,7 @@ CI_MESSAGE_ID=$(tg_send_message --chat_id "$CHAT_ID" --text "<b>=== Starting Bui
 <b>Running on:</b> <code>$DISTRO</code>
 <b>Started at</b> <code>$DATE</code>
 <b>Status:</b> <code>${1}</code>" --parse_mode "html" | jq .result.message_id)
-tg_edit_message_text --chat_id "$CHAT_ID" --message_id "$CI_MESSAGE_ID" --text "<b>=== Starting Buil$
+tg_edit_message_text --chat_id "$CHAT_ID" --message_id "$CI_MESSAGE_ID" --text "<b>=== Starting Buil ===<\b>
 <b>Branch:</b> <code>${KERNELBRANCH}</code>
 <b>Device:</b> <code>${DEVICE}</code>
 <b>Compile use:</b> <code>${COMPILE}</code>
@@ -84,4 +84,5 @@ tg_edit_message_text --chat_id "$CHAT_ID" --message_id "$CI_MESSAGE_ID" --text "
 <b>Running on:</b> <code>$DISTRO</code>
 <b>Started at</b> <code>$DATE</code>
 <b>Status:</b> <code>${1}</code>" --parse_mode "html"
+
 }
